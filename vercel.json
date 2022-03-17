@@ -1,0 +1,19 @@
+{
+  "version": 2,
+  "name": "tampermonkey-nest",
+  "regions":["hkg1"],
+  "builds": [
+    {"src":"tamper-scripts/AAA-pt-enhanced.user.js", "use":"@vercel/static"},
+    {
+      "src": "dist/main.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {"src":"/tamper-scripts/AAA-pt-enhanced.user.js", "dest":"tamper-scripts/AAA-pt-enhanced.user.js"},
+    {
+      "src": "/(.*)",
+      "dest": "dist/main.js"
+    }
+  ]
+}
