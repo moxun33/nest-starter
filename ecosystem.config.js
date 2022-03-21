@@ -2,7 +2,7 @@ module.exports = {
   apps: [
     {
       name: 'nest-starter',
-      script: 'dist/src/main.js',
+      script: 'dist/main.js',
       // Options reference: https://pm2.keymetrics.io/docs/usage/application-declaration/
       args: 'one two',
       instances: 1,

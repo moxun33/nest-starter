@@ -5,7 +5,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './user/users.module';
 import { ScheduleModule } from '@nestjs/schedule';
-import loadConfig from './config/configurations';
+import loadConfig from './core/config/configurations';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
 const bizModules = [AuthModule, UsersModule];

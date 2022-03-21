@@ -5,11 +5,11 @@ import {
   NestFastifyApplication,
 } from '@nestjs/platform-fastify';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
-import { HttpExceptionFilter } from './error/http-exception.filter';
-import { AllExceptionFilter } from './error/all-exception.filter';
-import { ReportLogger } from './log/ReportLogger';
-import { LogInterceptor } from './log/log.interceptor';
-import { TransformInterceptor } from './transform/transform.interceptor';
+import { HttpExceptionFilter } from './core/error/http-exception.filter';
+import { AllExceptionFilter } from './core/error/all-exception.filter';
+import { ReportLogger } from './core/log/ReportLogger';
+import { LogInterceptor } from './core/log/log.interceptor';
+import { TransformInterceptor } from './core/transform/transform.interceptor';
 import { ValidationPipe } from '@nestjs/common';
 
 const setupSwagger = (app) => {
@@ -49,7 +49,7 @@ async function bootstrap() {
   );
   app.useGlobalPipes(new ValidationPipe({ whitelist: true }));
   setupSwagger(app);
-  await app.listen(4400);
+  await app.listen(process.env.NEST_PORT, process.env.NEST_IP);
 }
 
 bootstrap();
